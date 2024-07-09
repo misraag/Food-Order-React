@@ -74,6 +74,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* background-color: green; */
 }
 
 .meal-item img {

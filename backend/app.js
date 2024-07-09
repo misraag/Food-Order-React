@@ -16,11 +16,13 @@ app.use((req, res, next) => {
 });
 
 app.get('/meals', async (req, res) => {
+  console.log("Meals are fetched")
   const meals = await fs.readFile('./data/available-meals.json', 'utf8');
   res.json(JSON.parse(meals));
 });
 
 app.post('/orders', async (req, res) => {
+  console.log("Order is placed")
   const orderData = req.body.order;
 
   if (orderData === null || orderData.items === null || orderData.items.length === 0) {
@@ -66,4 +68,6 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
 });
 
-app.listen(3000);
+app.listen(3000, ()=> {
+  console.log("Server is listening on port 3000...")
+});
